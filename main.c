@@ -35,7 +35,7 @@ if (argc != 2) {
             line[strlen(line) - 1] = '\0';
 
 
-     run_op(&head, line, line_number);
+     run_op(&head, line, line_number, file);
     }
 
     fclose(file);
