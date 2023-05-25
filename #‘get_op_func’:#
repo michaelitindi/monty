@@ -1,0 +1,7 @@
+getopfunc.c:35:35: error: implicit declaration of function ‘strdup’; did you mean ‘strcmp’? [-Werror=implicit-function-declaration]
+   35 |             instruction->opcode = strdup(op_funcs[i].opcode);
+         |                                   ^~~~~~
+	       |                                   strcmp
+	       getopfunc.c:35:33: error: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+	          35 |             instruction->opcode = strdup(op_funcs[i].opcode);
+		        |                                 ^
