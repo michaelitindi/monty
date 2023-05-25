@@ -5,7 +5,7 @@
  * @head: pointer
  * Return: void
  */
-void run_op(stack_t **head, char *line,  unsigned int line_number)
+void run_op(stack_t **head, char *line,  unsigned int line_number, FILE *file)
 {
 char *opcode, *arg;
 instruction_t *op_func;
@@ -21,7 +21,7 @@ instruction_t *op_func;
         {
             fprintf(stderr, "L%u: usage: push integer\n", line_number);
             free_stack(*head);
-            fclose(inst.file);
+            fclose(file);
             exit(EXIT_FAILURE);
         }
     }
@@ -31,7 +31,7 @@ instruction_t *op_func;
     {
         fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
         free_stack(*head);
-        fclose(inst.file);
+        fclose(file);
         exit(EXIT_FAILURE);
     }
     op_func->f(head, line_number);
